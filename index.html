@@ -1,7 +1,160 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6 max calculator</title>
+
+  <!-- JSpushchart -->
+  <script src="JSpushcart_view.js"></script>
+  <script src="JSpushcart_nav.js"></script>
+  <style type="text/css">
+  /* The pushchart will work on local machine onlny if CSS is declared inline, due to browser local access rules for local files. */
+
+  :root {
+  --JL_border: #c5c5c5;
+  --JL_color_selected: #ffffff;
+  --JL_background_selected: #e00000;
+  --JL_background_disabled: #302f2f;
+  --JL_outline: 2px dotted #c5c5c5;
+  }
+
+  .JLpushchart {
+      margin-right: .1em; 
+      margin-bottom: .1em;
+      padding: .4em 1em;
+      display: inline-block;
+      cursor: pointer;
+      vertical-align: middle;
+      text-align: center;    
+      border: 1px solid var(--JL_border);
+      border-radius: 3px;        
+      outline: none; 
+
+  }
+  
+  .JLpushchart:hover {
+      outline: var(--JL_outline);  
+  }
+
+  .JLpushchart_unselected {
+      background: #f6f6f6;
+  }
+
+  .JLpushchart_unselected:hover {
+      background: var(--JL_border)
+  }  
+  
+  .JLpushchart_disabled {
+      color: var(--JL_background_disabled);
+      background: var(--JL_background_disabled);
+      cursor: not-allowed;
+      pointer-events: none;
+  }
+
+
+  .JLpushchart_selected {
+      color: var(--JL_color_selected);
+      background: var(--JL_background_selected);    
+  }
+
+  .JLpushchart_selected:hover { 
+      outline: var(--JL_outline);
+  }  
+
+  #JLpushchart_stacks, 
+  #JLpushchart_my_position,
+  #JLpushchart_their_position {
+      display: block;
+      margin-top: 0.67em;
+      margin-bottom: 0.67em;
+      margin-left: 0;
+      margin-right: 0;
+  }
+
+  #JLpushchart_my_charts,
+  #JLpushchart_their_charts {
+      display: flex;
+      margin-top: 0.67em;
+      margin-bottom: 0.67em;
+      margin-left: 0;
+      margin-right: 0;
+      overflow-x: auto
+  }
+
+  #JLpushchart_their_position {
+      padding-left: 3%
+  }
+
+  .JLpushchart_responsive {
+      width: 100%;
+      max-width: 430px;
+      height: auto;
+  }
+
+ #JLpushchart_footer {
+      color: var(--JL_color_selected);  
+      border: var(--JL_background_selected) solid 2px;
+      background: var(--JL_background_selected);
+      font-family: serif;
+      color: white;
+      font-style: italic;
+      padding-left: 1em;
+   }
+ 
+  #JLpushchart_footer > span {
+      float:right;
+  }
+ 
+   #JLpushchart_footer > span > a {
+      color: var(--JL_color_selected);
+  }
+
+    .nav-container {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+  </style>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    
+ <div class="nav-container">
+  <nav id="JLpushchart_my_position">
+    My Position:
+    <button id="JLpushchart_my_lj" class="JLpushchart JLpushchart_unselected">LJ</button>
+    <button id="JLpushchart_my_hj" class="JLpushchart JLpushchart_unselected">HJ</button>
+    <button id="JLpushchart_my_co" class="JLpushchart JLpushchart_unselected">CO</button>
+    <button id="JLpushchart_my_btn" class="JLpushchart JLpushchart_unselected">BTN</button>
+    <button id="JLpushchart_my_sb" class="JLpushchart JLpushchart_unselected">SB</button>
+    <button id="JLpushchart_my_bb" class="JLpushchart JLpushchart_selected">BB</button>
+  </nav>
+
+  <nav id="JLpushchart_their_position">
+    Their Position:
+    <button id="JLpushchart_their_lj" class="JLpushchart JLpushchart_unselected">LJ</button>
+    <button id="JLpushchart_their_hj" class="JLpushchart JLpushchart_unselected">HJ</button>
+    <button id="JLpushchart_their_co" class="JLpushchart JLpushchart_unselected">CO</button>
+    <button id="JLpushchart_their_btn" class="JLpushchart JLpushchart_unselected">BTN</button>
+    <button id="JLpushchart_their_sb" class="JLpushchart JLpushchart_unselected">SB</button>
+    <button id="JLpushchart_their_bb" class="JLpushchart JLpushchart_disabled">BB</button>
+  </nav>
+</div>
+
+  <div id="JLpushchart_my_charts">
+    javascript is not enabled
+  </div>
+
+  <div id="JLpushchart_their_charts">
+    javascript is not enabled
+  </div>
+
+  <footer id="JLpushchart_footer">
+    6-handed cashgame. RFI: 2.5bb, SB: 3bb. 3-bet IP: 8.5bb, OOP: 10bb<span>From M. Acevedo's <a href="https://www.amazon.com/Modern-Poker-Theory-unbeatable-principles/dp/1909457892" target="_blank">Modern Poker Theory</a></span>
+  </footer>
 </body>
+
 </html>
